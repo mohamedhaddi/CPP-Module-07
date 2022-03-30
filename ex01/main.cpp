@@ -6,32 +6,42 @@
 /*   By: mhaddi <mhaddi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 23:13:20 by mhaddi            #+#    #+#             */
-/*   Updated: 2022/03/30 23:55:40 by mhaddi           ###   ########.fr       */
+/*   Updated: 2022/03/30 23:53:31 by mhaddi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "templates.hpp"
+#include "iter.hpp"
 #include <iostream>
+#define SIZE 3
 
 int main(void) {
 
-	int a = 2;
-	int b = 3;
+	int arr1[SIZE] = {1, 2, 3};
+	std::string arr2[SIZE] = {"one", "two", "three"};
 
-	::swap(a, b);
+	std::cout << "arr1: ";
+	for (int i = 0; i < SIZE; i++)
+		std::cout << arr1[i] << " ";
+	std::cout << std::endl;
+	
+	std::cout << "arr2: ";
+	for (int i = 0; i < SIZE; i++)
+		std::cout << arr2[i] << " ";
+	std::cout << std::endl;
 
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min(a, b) = " << ::min(a, b) << std::endl;
-	std::cout << "max(a, b) = " << ::max(a, b) << std::endl;
+	::iter<int>(arr1, SIZE, &dup<int>);
+	::iter<std::string>(arr2, SIZE, &dup<std::string>);
 
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-
-	::swap(c, d);
-
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min(c, d) = " << ::min(c, d) << std::endl;
-	std::cout << "max(c, d) = " << ::max(c, d) << std::endl;
+	std::cout << "arr1: ";
+	for (int i = 0; i < SIZE; i++)
+		std::cout << arr1[i] << " ";
+	std::cout << std::endl;
+	
+	std::cout << "arr2: ";
+	for (int i = 0; i < SIZE; i++)
+		std::cout << arr2[i] << " ";
+	std::cout << std::endl;
 
 	return 0;
+
 }
